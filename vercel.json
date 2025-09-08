@@ -1,0 +1,40 @@
+{
+  "rewrites": [
+    {
+      "source": "/one/(.*)",
+      "destination": "/CatchEggs/web-mobile/$1"
+    },
+    {
+      "source": "/one",
+      "destination": "/CatchEggs/web-mobile/index.html"
+    },
+    {
+      "source": "/two/(.*)",
+      "destination": "/PickGear/web-mobile/$1"
+    },
+    {
+      "source": "/two",
+      "destination": "/PickGear/web-mobile/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
