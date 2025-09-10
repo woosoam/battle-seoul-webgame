@@ -19,7 +19,16 @@
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/CatchEggs/web-mobile/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/PickGear/web-mobile/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -35,6 +44,32 @@
           "value": "public, max-age=0, must-revalidate"
         }
       ]
+    },
+    {
+      "source": "/(.*).js",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).css",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/css"
+        }
+      ]
     }
-  ]
+  ],
+  "functions": {
+    "CatchEggs/web-mobile/index.html": {
+      "includeFiles": "CatchEggs/web-mobile/**"
+    },
+    "PickGear/web-mobile/index.html": {
+      "includeFiles": "PickGear/web-mobile/**"
+    }
+  }
 }
